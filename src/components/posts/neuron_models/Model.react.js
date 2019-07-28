@@ -161,7 +161,7 @@ class Model extends Component<Props, State> {
             targetParamKey={targetParamKey}
             model={model}
             ylabel={ylabel}
-            dt={0.01}
+            dt={0.04}
             totalTime={100}
             height={height}
           />
