@@ -1,0 +1,21 @@
+@import 'variables.scss';
+
+.emphasis {
+  &.bottom {
+    padding-bottom: $emphasis-padding;
+  }
+
+  &.all {
+    padding: $emphasis-padding;
+  }
+}
+
+.padded {
+  &.bottom {
+    padding-bottom: $base-padding;
+  }
+
+  &.all {
+    padding: $base-padding;
+  }
+}
