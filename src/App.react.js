@@ -1,9 +1,11 @@
 import React, { FunctionalComponent } from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { HashRouter, Route } from 'react-router-dom';
-import 'css/App.scss';
+
 import About from 'pages/About.react';
 import PostRouter from 'posts/PostRouter.react';
+
+import 'css/App.scss';
 
 const App: FunctionalComponent = () => (
   <div className="App">
