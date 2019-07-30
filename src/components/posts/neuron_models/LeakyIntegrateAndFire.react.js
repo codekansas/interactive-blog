@@ -20,6 +20,13 @@ const ModelParams: Array<Param> = [
     key: 'v_in',
     name: 'Input Voltage',
     unit: 'mV',
+    value: 0,
+    stepValue: 1,
+  },
+  {
+    key: 'v_in_level',
+    name: 'Input Voltage Step',
+    unit: 'mV',
     value: 20,
     stepValue: 1,
   },
@@ -53,13 +60,17 @@ const modelStep = (
 ): Map<string, number> => {
   const vReset = inputs.get('v_reset');
   const vThresh = inputs.get('v_thresh');
-  const vIn = t < inputs.get('start_time') ? vReset : inputs.get('v_in');
+  const vIn = inputs.get('v_in');
   const vMem = inputs.get('v_mem');
   const tauM = inputs.get('tau_m');
 
   const dv = ((vIn - vMem) / tauM) * dt;
   const vMemNew = vMem + dv;
   const vMemReset = vMemNew > vThresh ? vReset : vMemNew;
+
+  if (t >= inputs.get('start_time')) {
+    inputs.set('v_in', inputs.get('v_in_level'));
+  }
 
   inputs.set('v_mem', vMemReset);
 

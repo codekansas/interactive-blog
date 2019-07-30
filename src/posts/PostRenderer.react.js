@@ -1,6 +1,7 @@
 import React, { FunctionalComponent } from 'react';
 import { PostInfo } from 'posts/PostMap.react';
 import 'css/pages/Post.scss';
+import LazyLoad from 'react-lazyload';
 
 interface Props {
   info: PostInfo,
@@ -14,9 +15,11 @@ const PostRenderer: FunctionalComponent<Props> = (props: Props) => {
   } = props;
   return (
     <div className="emphasis all">
-      <h1 className="padded bottom text-center title">{title}</h1>
-      <h4 className="padded bottom text-center blurb">{blurb}</h4>
-      {renderer()}
+      <h1 className="padded bottom title">{title}</h1>
+      <h4 className="emphasis bottom blurb">{blurb}</h4>
+      <LazyLoad>
+        {renderer()}
+      </LazyLoad>
     </div>
   );
 };

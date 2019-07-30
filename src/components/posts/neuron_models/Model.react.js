@@ -99,12 +99,12 @@ class ModelRenderer extends Component<RendererProps, RendererState> {
             <Crosshair
               values={[nearestValue]}
               titleFormat={i => ({
-                title: 'Time (ms)',
-                value: `${Math.round(i[0].x * 10000) / 10000}`,
+                title: ylabel,
+                value: `${Math.round(i[0].y * 10000) / 10000}`,
               })}
               itemsFormat={i => i.map(j => ({
-                title: ylabel,
-                value: `${Math.round(j.y * 10000) / 10000}`,
+                title: 'Time (ms)',
+                value: `${Math.round(j.x * 10000) / 10000}`,
               }))}
             />
           )}
@@ -153,6 +153,7 @@ class Model extends Component<Props, State> {
     const { params, targetParamKey } = this.state;
     const { name, unit } = params.find(e => e.key === targetParamKey);
     const ylabel = unit == null ? name : `${name} (${unit})`;
+    const columnSize = 4;
     return (
       <div>
         <LazyLoad height={height}>
@@ -162,14 +163,14 @@ class Model extends Component<Props, State> {
             model={model}
             ylabel={ylabel}
             dt={0.04}
-            totalTime={100}
+            totalTime={250}
             height={height}
           />
         </LazyLoad>
         <Form onSubmit={this.handleSubmit}>
           <Form.Row>
             {params.map(param => (
-              <Form.Group key={param.key} controlId={param.key} as={Col} md="3">
+              <Form.Group key={param.key} controlId={param.key} as={Col} md={columnSize}>
                 <Form.Label>{param.name}</Form.Label>
                 <InputGroup>
                   <Form.Control
@@ -189,7 +190,7 @@ class Model extends Component<Props, State> {
                 </InputGroup>
               </Form.Group>
             ))}
-            <Form.Group controlId="out_var" as={Col} md="3">
+            <Form.Group controlId="out_var" as={Col} md={columnSize}>
               <Form.Label>Output Variable</Form.Label>
               <Form.Control
                 as="select"
@@ -201,7 +202,7 @@ class Model extends Component<Props, State> {
                 ))}
               </Form.Control>
             </Form.Group>
-            <Form.Group key="submit" as={Col} md="3">
+            <Form.Group key="submit" as={Col} md={columnSize}>
               <Form.Label>Update Params</Form.Label>
               <InputGroup>
                 <Button type="submit">Update</Button>

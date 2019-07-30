@@ -48,6 +48,13 @@ const ModelParams: Array<Param> = [
     key: 'v_in',
     name: 'Input Voltage',
     unit: 'mV',
+    value: 0,
+    stepValue: 1,
+  },
+  {
+    key: 'v_in_level',
+    name: 'Input Voltage Step',
+    unit: 'mV',
     value: 20,
     stepValue: 1,
   },
@@ -99,7 +106,7 @@ const modelStep = (
   const gNa = inputs.get('g_na');
   const gK = inputs.get('g_k');
   const gL = inputs.get('g_l');
-  const vIn = t < inputs.get('start_time') ? 0 : inputs.get('v_in');
+  const vIn = inputs.get('v_in');
   const vMem = inputs.get('v_mem');
   const m = inputs.get('m');
   const n = inputs.get('n');
@@ -128,6 +135,10 @@ const modelStep = (
   inputs.set('h', h + dh);
   inputs.set('n', n + dn);
   inputs.set('v_mem', vMem + dv);
+
+  if (t >= inputs.get('start_time')) {
+    inputs.set('v_in', inputs.get('v_in_level'));
+  }
 
   return inputs;
 };
