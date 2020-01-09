@@ -18,7 +18,7 @@ const ComplexVariables: FunctionalComponent = () => (
       </div>
       <h3 className="emphasis top">Complex Numbers</h3>
       <div>
-        An <i>complex number</i> is a number which can be written{' '}
+        A <i>complex number</i> is a number which can be written{' '}
         <code>c = a + bi</code>, where <code>a</code> and <code>b</code> are
         real numbers and <code>i</code> represents the imaginary unit, which has
         the property <code>i * i = -1</code>. All real numbers can be
@@ -27,7 +27,7 @@ const ComplexVariables: FunctionalComponent = () => (
         <code>
           c<sup>*</sup> = a - bi
         </code>
-        , so that the product of a complex number and it's conjugate results in
+        , so that the product of a complex number and its conjugate results in
         a real number, since
       </div>
       <div className="padded top-bottom">
@@ -79,7 +79,7 @@ const ComplexVariables: FunctionalComponent = () => (
       <div>
         A <i>complex function</i> is a function from complex numbers to complex
         numbers. A function is <i>holomorphic</i> on some subset of the complex
-        plane if it complex differentiable on that subset. For example, the
+        plane if it is complex differentiable on that subset. For example, the
         function
       </div>
       <div className="padded top-bottom">
