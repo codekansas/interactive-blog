@@ -2,6 +2,7 @@ import React, { FunctionalComponent } from 'react';
 import { PostInfo } from 'posts/PostMap.react';
 import 'css/pages/Post.scss';
 import LazyLoad from 'react-lazyload';
+import ReactUtterances from 'react-utterances';
 
 interface Props {
   info: PostInfo,
@@ -20,6 +21,7 @@ const PostRenderer: FunctionalComponent<Props> = (props: Props) => {
       <LazyLoad>
         {renderer()}
       </LazyLoad>
+      <ReactUtterances repo="codekansas/interactive-blog" type="pathname" />
     </div>
   );
 };

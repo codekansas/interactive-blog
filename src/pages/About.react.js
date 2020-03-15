@@ -11,21 +11,10 @@ const About: FunctionalComponent = () => (
       My name is Ben.
     </h2>
     <h4 className="padded bottom contents">
-      I'm a software engineer at Facebook, where I work on natural language
-      processing.
-    </h4>
-    <h4 className="padded bottom contents">
-      I like trying to explain things in fun and informative ways. I used to fairly
-      active on{' '}
-      <a href="https://github.com/codekansas">Github</a>
-      . If you're interested in connecting, shoot me an{' '}
-      <a href="mailto:ben@bolte.cc">email</a>.
-    </h4>
-    <h4 className="padded bottom contents">
-      Besides programming, I like playing soccer and reading books. I'm currently
-      trying to get better at{' '}
-      <a href="https://www.chess.com/member/codekansas">chess</a>
-      , but it's slow going.
+      These are some interactive posts that didn't fit in very well with my main
+      blog over{' '}
+      <a href="https://ben.bolte.cc/">here</a>
+      .
     </h4>
   </div>
 );
