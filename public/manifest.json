@@ -1,6 +1,6 @@
 {
-  "short_name": "Code Kansas",
-  "name": "Code Kansas Blog",
+  "short_name": "Ben Bolte's Blog",
+  "name": "Hi! I'm Ben. This is my interactive blog.",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
