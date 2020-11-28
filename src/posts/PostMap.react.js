@@ -1,11 +1,7 @@
-import React from "react";
-
-/* --------------
- * Post Renderers
- * -------------- */
 import ComplexVariables from "posts/renderers/ComplexVariables.react";
 import EscapeGame from "posts/renderers/EscapeGame.react";
 import NeuronModels from "posts/renderers/NeuronModels.react";
+import React from "react";
 
 export interface PostInfo {
   title: string;
