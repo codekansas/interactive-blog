@@ -1,4 +1,4 @@
-@import 'variables.scss';
+@import "variables.scss";
 
 a {
   text-decoration: none;
@@ -25,5 +25,39 @@ a:after {
 }
 
 a:hover:after {
+  height: 100%;
+}
+
+button.link {
+  text-decoration: none;
+  color: $font-color;
+  font-weight: $base-font-weight;
+  font-size: $base-font-size;
+  position: relative;
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  cursor: pointer;
+}
+
+button.link:hover {
+  text-decoration: none!important;
+  color: $font-color;
+}
+
+button.link:after {
+  border-radius: 0.2em;
+  content: ""!important;
+  position: absolute;
+  z-index: -1;
+  left: -0.1em;
+  right: -0.1em;
+  bottom: 0;
+  height: 0.1em;
+  transition: all 200ms ease;
+  background-color: $highlight-color!important;
+}
+
+button.link:hover:after {
   height: 100%;
 }
