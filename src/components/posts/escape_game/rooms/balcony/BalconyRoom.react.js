@@ -1,5 +1,5 @@
 import React, { FunctionalComponent } from "react";
-import { Button } from "react-bootstrap";
+import { Button, ListGroup } from "react-bootstrap";
 
 interface Props {
   flags: Map<string, any>;
@@ -33,14 +33,27 @@ const BalconyRoom: FunctionalComponent = (props: Props) => {
     }
   };
 
+  const flashlight = (
+    <Button variant="link" onClick={() => addFlag("flashlight-clue")}>
+      flashlight
+    </Button>
+  );
+
   return (
     <div>
-      <p>
-        You're on the balcony. It's a nice view. There's some birds chirping
-        nearby.
-      </p>
-      {getLeafletText()}
-      <p>You can go back to the {elevator}.</p>
+      <ListGroup>
+        <ListGroup.Item>
+          You're on the balcony. It's a nice view. There's some birds chirping
+          nearby.
+        </ListGroup.Item>
+        {getLeafletText()}
+        {flags.has("flashlight-clue") ? null : (
+          <ListGroup.Item>
+            There's a {flashlight} lying on the floor.
+          </ListGroup.Item>
+        )}
+        <ListGroup.Item>You can go back to the {elevator}.</ListGroup.Item>
+      </ListGroup>
     </div>
   );
 };

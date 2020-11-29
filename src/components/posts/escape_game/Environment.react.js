@@ -11,6 +11,7 @@ const MAP_DEFAULTS = [
   // ["leaflet-clue", true],
   // ["phone-clue", true],
   // ["phone-is-unlocked", true],
+  // ["flashlight-clue", true],
 ];
 
 const Environment: FunctionalComponent = () => {

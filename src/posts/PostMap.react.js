@@ -15,11 +15,11 @@ const PostMap: {
   [
     "escape_game",
     {
-      title: "Escape 🏃 from Oxford",
+      title: "Virtual Escape 🏃 Room",
       blurb: (
         <span>
-          An escape game Christmas present for my lovely fiancee. How fast can
-          you escape from the iron-fisted Oxford administration?
+          An escape room Christmas present for my fiancee. How fast can you
+          escape?
         </span>
       ),
       renderer: EscapeGame,

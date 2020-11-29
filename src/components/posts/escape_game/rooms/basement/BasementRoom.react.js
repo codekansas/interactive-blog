@@ -1,5 +1,5 @@
 import React, { FunctionalComponent } from "react";
-import { Button } from "react-bootstrap";
+import { Button, ListGroup } from "react-bootstrap";
 
 interface Props {
   flags: Map<string, any>;
@@ -14,21 +14,29 @@ const BasementRoom: FunctionalComponent = (props: Props) => {
       staircase
     </Button>
   );
-  const flashlight = (
-    <Button variant="link" onClick={() => addFlag("flashlight-clue")}>
-      flashlight
+  const garden = (
+    <Button variant="link" onClick={() => setRoom("garden-room")}>
+      garden
     </Button>
   );
+  const flashlight_status = flags.has("flashlight-status")
+    ? flags.get("flashlight-status")
+    : false;
+
   return (
     <div>
-      <p>
-        {" "}
-        You're in the basement. I haven't finished this part. Maybe you can just
-        go back to the {staircase}.
-      </p>
-      {flags.has("flashlight-clue") ? null : (
-        <p>There's a {flashlight} lying on the floor.</p>
-      )}
+      <ListGroup>
+        <ListGroup.Item>You're in the basement.</ListGroup.Item>
+        {flashlight_status ? (
+          <ListGroup.Item>
+            The flashlight illuminates the room. You see a door on the opposite
+            side of the room which looks like it leads to the {garden}.
+          </ListGroup.Item>
+        ) : (
+          <ListGroup.Item>You can't see much.</ListGroup.Item>
+        )}
+        <ListGroup.Item>You can go back to the {staircase}.</ListGroup.Item>
+      </ListGroup>
     </div>
   );
 };

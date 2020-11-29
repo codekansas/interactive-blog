@@ -2,6 +2,7 @@ import "css/posts/escape_room/EscapeRoom.scss";
 import React, { FunctionalComponent, useState } from "react";
 import BalconyRoom from "./balcony/BalconyRoom.react";
 import BasementRoom from "./basement/BasementRoom.react";
+import GardenRoom from "./garden/GardenRoom.react";
 import HallwayElevator from "./hallway/HallwayElevator.react";
 import HallwayRoom from "./hallway/HallwayRoom.react";
 import HallwayStaircase from "./hallway/HallwayStaircase.react";
@@ -56,6 +57,11 @@ const getRoom = (key: string, room_props: Props): React.Node => {
         name: "The Basement",
         renderer: <BasementRoom {...room_props} />,
       };
+    case "garden-room":
+      return {
+        name: "The Garden",
+        renderer: <GardenRoom {...room_props} />,
+      };
     default:
       console.log("Invalid room key:", key);
       return null;
@@ -65,7 +71,6 @@ const getRoom = (key: string, room_props: Props): React.Node => {
 const RoomRenderer: FunctionalComponent = (props: Props) => {
   const { flags, addFlag } = props;
   const [room, setRoom] = useState("study-room");
-  // const [room, setRoom] = useState("basement-room");
 
   const room_props = {
     addFlag,

@@ -5,10 +5,9 @@ import Environment from "components/posts/escape_game/Environment.react";
 
 const EscapeGame: FunctionalComponent = () => (
   <div className="post-body">
-    <h3>Escape from Oxford</h3>
+    <h3>Virtual Escape Room</h3>
     <div>
-      You've woken up in a mysterious room, with no recollection of the night
-      before. Can you figure out what happened and how to get back home?
+      Welcome to my virtual escape room! This works best on Chrome.
     </div>
     <Environment />
   </div>
