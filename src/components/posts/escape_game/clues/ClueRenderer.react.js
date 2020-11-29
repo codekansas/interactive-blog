@@ -1,7 +1,7 @@
-import "css/posts/escape_room/EscapeRoom.scss";
 import React, { FunctionalComponent, useState } from "react";
 import { Button } from "react-bootstrap";
 import BookClue from "./BookClue.react";
+import FlashlightClue from "./FlashlightClue.react";
 import LeafletClue from "./LeafletClue.react";
 import PhoneClue from "./PhoneClue.react";
 
@@ -74,6 +74,11 @@ const ClueRenderer: FunctionalComponent = (props: Props) => {
       key: "phone-clue",
       name: "Phone",
       renderer: <PhoneClue {...props} />,
+    },
+    {
+      key: "flashlight-clue",
+      name: "A dim flashlight",
+      renderer: <FlashlightClue {...props} />,
     },
   ];
 

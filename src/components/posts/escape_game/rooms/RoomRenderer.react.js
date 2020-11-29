@@ -65,6 +65,7 @@ const getRoom = (key: string, room_props: Props): React.Node => {
 const RoomRenderer: FunctionalComponent = (props: Props) => {
   const { flags, addFlag } = props;
   const [room, setRoom] = useState("study-room");
+  // const [room, setRoom] = useState("basement-room");
 
   const room_props = {
     addFlag,

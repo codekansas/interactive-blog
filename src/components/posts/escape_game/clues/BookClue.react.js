@@ -1,4 +1,3 @@
-import "css/posts/escape_room/EscapeRoom.scss";
 import React, { FunctionalComponent, useState } from "react";
 import { Card, Button, ButtonGroup } from "react-bootstrap";
 

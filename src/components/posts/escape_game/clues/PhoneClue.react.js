@@ -1,4 +1,3 @@
-import "css/posts/escape_room/EscapeRoom.scss";
 import React, { FunctionalComponent, useState } from "react";
 import { Button, ButtonGroup } from "react-bootstrap";
 import Clock from "../modules/Clock.react";
