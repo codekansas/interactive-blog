@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.a5244c86.chunk.css",
+    "main.css": "/static/css/main.e68e0188.chunk.css",
     "main.js": "/static/js/main.f4f41b93.chunk.js",
     "main.js.map": "/static/js/main.f4f41b93.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.0ed6e50a.js",
@@ -9,10 +9,10 @@
     "static/js/2.2aa5eafc.chunk.js": "/static/js/2.2aa5eafc.chunk.js",
     "static/js/2.2aa5eafc.chunk.js.map": "/static/js/2.2aa5eafc.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.6a527e5e83774a4ef8bd22ea8a16d244.js": "/precache-manifest.6a527e5e83774a4ef8bd22ea8a16d244.js",
+    "precache-manifest.0046c29e264ecae04f42d7e67bf50b4a.js": "/precache-manifest.0046c29e264ecae04f42d7e67bf50b4a.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.5a2f7233.chunk.css.map": "/static/css/2.5a2f7233.chunk.css.map",
-    "static/css/main.a5244c86.chunk.css.map": "/static/css/main.a5244c86.chunk.css.map",
+    "static/css/main.e68e0188.chunk.css.map": "/static/css/main.e68e0188.chunk.css.map",
     "static/js/2.2aa5eafc.chunk.js.LICENSE.txt": "/static/js/2.2aa5eafc.chunk.js.LICENSE.txt",
     "static/media/ellington-farms.svg": "/static/media/ellington-farms.4f309548.svg",
     "static/media/flashlight-off.svg": "/static/media/flashlight-off.fc6e9e53.svg",
@@ -23,7 +23,7 @@
     "static/js/runtime-main.0ed6e50a.js",
     "static/css/2.5a2f7233.chunk.css",
     "static/js/2.2aa5eafc.chunk.js",
-    "static/css/main.a5244c86.chunk.css",
+    "static/css/main.e68e0188.chunk.css",
     "static/js/main.f4f41b93.chunk.js"
   ]
 }
