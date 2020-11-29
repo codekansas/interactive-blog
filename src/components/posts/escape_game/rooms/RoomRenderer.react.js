@@ -1,11 +1,13 @@
 import "css/posts/escape_room/EscapeRoom.scss";
 import React, { FunctionalComponent, useState } from "react";
+import BalconyRoom from "./balcony/BalconyRoom.react";
+import BasementRoom from "./basement/BasementRoom.react";
+import HallwayElevator from "./hallway/HallwayElevator.react";
+import HallwayRoom from "./hallway/HallwayRoom.react";
+import HallwayStaircase from "./hallway/HallwayStaircase.react";
 import StudyRoom from "./study/StudyRoom.react";
 import StudyRoomDoor from "./study/StudyRoomDoor.react";
 import StudyRoomPainting from "./study/StudyRoomPainting.react";
-import HallwayRoom from "./hallway/HallwayRoom.react";
-
-const START_ROOM = "study-room";
 
 interface Props {
   flags: Set<string>;
@@ -14,7 +16,7 @@ interface Props {
 
 const getRoom = (key: string, room_props: Props): React.Node => {
   switch (key) {
-    case START_ROOM:
+    case "study-room":
       return {
         name: "The Study",
         renderer: <StudyRoom {...room_props} />,
@@ -34,6 +36,26 @@ const getRoom = (key: string, room_props: Props): React.Node => {
         name: "The Hallway outside the Study",
         renderer: <HallwayRoom {...room_props} />,
       };
+    case "hallway-elevator":
+      return {
+        name: "The Elevator off the Hallway",
+        renderer: <HallwayElevator {...room_props} />,
+      };
+    case "hallway-staircase":
+      return {
+        name: "The Staircase off the Hallway",
+        renderer: <HallwayStaircase {...room_props} />,
+      };
+    case "balcony-room":
+      return {
+        name: "The Balcony",
+        renderer: <BalconyRoom {...room_props} />,
+      };
+    case "basement-room":
+      return {
+        name: "The Basement",
+        renderer: <BasementRoom {...room_props} />,
+      };
     default:
       console.log("Invalid room key:", key);
       return null;
@@ -42,7 +64,7 @@ const getRoom = (key: string, room_props: Props): React.Node => {
 
 const RoomRenderer: FunctionalComponent = (props: Props) => {
   const { flags, addFlag } = props;
-  const [room, setRoom] = useState(START_ROOM);
+  const [room, setRoom] = useState("study-room");
 
   const room_props = {
     addFlag,

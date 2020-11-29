@@ -1,4 +1,3 @@
-import "css/posts/escape_room/EscapeRoom.scss";
 import React, { FunctionalComponent } from "react";
 import { Button } from "react-bootstrap";
 import Keypad from "../../modules/Keypad.react";
@@ -79,7 +78,7 @@ const renderPaintingText = (props: Props): React.Node => {
       <p>
         You look deeply at the painting for several minutes. The colors are
         fascinating - it looks like it might have been color-by-number. You
-        remember your conversation with Estel. Maybe you can try to {move} the
+        remember your conversation with Chloe. Maybe you can try to {move} the
         painting aside to see if there's anything behind it.
       </p>
     );

@@ -63,12 +63,12 @@ const ClueRenderer: FunctionalComponent = (props: Props) => {
     {
       key: "book-clue",
       name: "A musty old book",
-      renderer: <BookClue />,
+      renderer: <BookClue {...props} />,
     },
     {
       key: "leaflet-clue",
       name: "Some scattered leaflets",
-      renderer: <LeafletClue />,
+      renderer: <LeafletClue {...props} />,
     },
     {
       key: "phone-clue",

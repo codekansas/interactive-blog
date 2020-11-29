@@ -56,7 +56,7 @@ const renderDoor = (props: Props): React.Node => {
 };
 
 const renderPainting = (props: Props): React.Node => {
-  const { flags, addFlag, setRoom } = props;
+  const { flags, setRoom } = props;
 
   const painting = (
     <Button

@@ -5,12 +5,10 @@ import Environment from "components/posts/escape_game/Environment.react";
 
 const EscapeGame: FunctionalComponent = () => (
   <div className="post-body">
-    <h3>Escape from Oxford!</h3>
+    <h3>Escape from Oxford</h3>
     <div>
-      Doctor Le, help! A terrible plague has broken out. You've been trapped in
-      a small apartment with your dashing android fiancee, Benbot. Do you have
-      what it takes to escape from Oxford with your health and grades still
-      intact?
+      You've woken up in a mysterious room, with no recollection of the night
+      before. Can you figure out what happened and how to get back home?
     </div>
     <Environment />
   </div>
