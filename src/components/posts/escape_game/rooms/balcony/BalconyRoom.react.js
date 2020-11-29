@@ -18,7 +18,9 @@ const BalconyRoom: FunctionalComponent = (props: Props) => {
   const getLeafletText = (): React.Node => {
     if (flags.has("got-iron-fitness-leaflet")) {
       return (
-        <p>You picked up a leaflet. It seems to be a flier for Iron Fitness.</p>
+        <ListGroup.Item>
+          You picked up a leaflet. It seems to be a flier for Iron Fitness.
+        </ListGroup.Item>
       );
     } else {
       const leaflet = (
@@ -29,7 +31,11 @@ const BalconyRoom: FunctionalComponent = (props: Props) => {
           leaflet
         </Button>
       );
-      return <p>You see a {leaflet} fluttering in the wind.</p>;
+      return (
+        <ListGroup.Item>
+          You see a {leaflet} fluttering in the wind.
+        </ListGroup.Item>
+      );
     }
   };
 
