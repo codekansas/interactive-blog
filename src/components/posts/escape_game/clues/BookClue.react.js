@@ -21,7 +21,7 @@ const PAGES = [
     mean-looking wolf.
   </span>,
   <span>
-    The wolf growled at her. The pig turned around to run, but the wold pounced
+    The wolf growled at her. The pig turned around to run, but the wolf pounced
     on her and pinned her to the ground.
   </span>,
   <span>

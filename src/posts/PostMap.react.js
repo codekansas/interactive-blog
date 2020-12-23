@@ -18,8 +18,8 @@ const PostMap: {
       title: "Virtual Escape 🏃 Room",
       blurb: (
         <span>
-          An escape room Christmas present for my fiancee. How fast can you
-          escape?
+          An escape room Christmas and birthday present for my beautiful fiancée{" "}
+          <a href="https://www.youtube.com/watch?v=8IJzYAda1wA">Chi.</a>
         </span>
       ),
       renderer: EscapeGame,

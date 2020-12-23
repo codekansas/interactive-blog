@@ -25,8 +25,8 @@ const renderMain = (props: Props): React.Node => {
       <Button variant="link" onClick={() => addFlag("phone-clue")}>
         phone
       </Button>
-      . You're head hurts - must have been a late night last night, but you
-      can't remember how you got here.
+      . Your head hurts - must have been a late night last night, but you can't
+      remember how you got here.
     </ListGroup.Item>
   );
 };

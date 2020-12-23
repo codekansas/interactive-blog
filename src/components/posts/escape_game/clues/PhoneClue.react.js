@@ -59,6 +59,7 @@ const renderConversation = (props: Props, state: State): React.Node => {
             { text: "Studying all night", mine: true },
             { text: "You have an exam or something?", mine: false },
             { text: "Yep, big test tomorrow", mine: true },
+            { text: "C= C= C= C= C=┌(;・ω・)┘", mine: true},
             { text: "Good luck! 😊", mine: false },
           ]}
         />
@@ -87,14 +88,13 @@ const renderConversation = (props: Props, state: State): React.Node => {
         <PhoneChat
           name="Estee"
           messages={[
-            { text: "Hiii!", mine: true },
-            { text: "What's the elevator code again?", mine: true },
+            { text: "Hiii! What's the elevator code again?", mine: true },
             { text: "OMG it's so annoying", mine: false },
             {
               text: "It's whatever the current time is, plus three minutes",
               mine: false,
             },
-            { text: "Thanks!", mine: true },
+            { text: "Thanks! I always forget it ლ(¯ロ¯\"ლ)", mine: true },
           ]}
         />
       );
@@ -105,7 +105,7 @@ const renderConversation = (props: Props, state: State): React.Node => {
 
 const renderAllConversations = (props: Props, state: State): React.Node => {
   const { setScreen, conversation, setConversation } = state;
-  const { addFlag } = props;
+  const { flags, addFlag } = props;
   if (conversation !== null) {
     return (
       <div>
@@ -131,7 +131,9 @@ const renderAllConversations = (props: Props, state: State): React.Node => {
       >
         Chloe
       </Button>
-      <Button onClick={() => setConversation("estee")}>Estee</Button>
+      {flags.has("visited-elevator") ? (
+        <Button onClick={() => setConversation("estee")}>Estee</Button>
+      ) : null}
       <Button onClick={() => setScreen(null)}>Back</Button>
     </ButtonGroup>
   );
@@ -142,7 +144,7 @@ const renderClock = (props: Props, state: State): React.Node => {
   const { flags, addFlag } = props;
 
   const maxDate = new Date("Aug 9, 1995 11:45:20");
-  const noIncDate = new Date("Aug 9, 1995 11:55:20")
+  const noIncDate = new Date("Aug 9, 1995 11:55:20");
   const time = flags.has("current-time")
     ? flags.get("current-time")
     : new Date("Aug 9, 1995 11:35:20");

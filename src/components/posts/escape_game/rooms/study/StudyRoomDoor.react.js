@@ -1,6 +1,6 @@
 import "css/posts/escape_room/EscapeRoom.scss";
 import React, { FunctionalComponent } from "react";
-import {Button} from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 interface Props {
   flags: Map<string, any>;
@@ -30,7 +30,7 @@ const renderDoorText = (props: Props): React.Node => {
   } else {
     return (
       <p>
-        The door ot the study is locked up tight. Maybe you should go explore
+        The door to the study is locked up tight. Maybe you should go explore
         the {rest} of the room.
       </p>
     );

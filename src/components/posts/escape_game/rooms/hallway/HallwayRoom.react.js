@@ -10,7 +10,7 @@ interface Props {
 }
 
 const HallwayRoom: FunctionalComponent = (props: Props) => {
-  const { flags, setRoom } = props;
+  const { flags, addFlag, setRoom } = props;
   const study = (
     <Button variant="link" onClick={() => setRoom("study-room")}>
       study
@@ -22,7 +22,13 @@ const HallwayRoom: FunctionalComponent = (props: Props) => {
     </Button>
   );
   const right = (
-    <Button variant="link" onClick={() => setRoom("hallway-elevator")}>
+    <Button
+      variant="link"
+      onClick={() => {
+        setRoom("hallway-elevator");
+        addFlag("visited-elevator");
+      }}
+    >
       right
     </Button>
   );
