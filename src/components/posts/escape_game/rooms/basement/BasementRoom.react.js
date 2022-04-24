@@ -3,12 +3,11 @@ import { Button, ListGroup } from "react-bootstrap";
 
 interface Props {
   flags: Map<string, any>;
-  addFlag: (k: string, v: any) => void;
   setRoom: (k: string) => void;
 }
 
 const BasementRoom: FunctionalComponent = (props: Props) => {
-  const { flags, addFlag, setRoom } = props;
+  const { flags, setRoom } = props;
   const staircase = (
     <Button variant="link" onClick={() => setRoom("hallway-staircase")}>
       staircase

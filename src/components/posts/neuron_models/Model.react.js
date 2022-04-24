@@ -1,59 +1,57 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { Button, Form, InputGroup, Col } from "react-bootstrap";
+import "react-vis/dist/style.css";
 import {
-  Button, Form, InputGroup, Col,
-} from 'react-bootstrap';
-import 'react-vis/dist/style.css';
-import {
-  XAxis, YAxis, LineSeries, FlexibleWidthXYPlot, Crosshair,
-} from 'react-vis';
-import LazyLoad from 'react-lazyload';
+  XAxis,
+  YAxis,
+  LineSeries,
+  FlexibleWidthXYPlot,
+  Crosshair,
+} from "react-vis";
+import LazyLoad from "react-lazyload";
 
 export interface Param {
-  key: string,
-  name: string,
-  unit: ?string,
-  value: number,
-  stepValue: number,
+  key: string;
+  name: string;
+  unit: ?string;
+  value: number;
+  stepValue: number;
 }
 
 interface Props {
-  params: Array<Param>,
-  defaultTargetParamKey: string,
-  model: (Map<string, number>, number) => Map<string, number>,
+  params: Array<Param>;
+  defaultTargetParamKey: string;
+  model: (Map<string, number>, number) => Map<string, number>;
 }
 
 interface State {
-  params: Array<Param>,
-  targetParamKey: string,
+  params: Array<Param>;
+  targetParamKey: string;
 }
 
 interface RendererProps {
-  params: Array<Param>,
-  targetParamKey: string,
-  model: (Map<string, number>, number) => Map<string, number>,
-  ylabel: string,
-  dt: number,
-  totalTime: number,
-  height: number,
+  params: Array<Param>;
+  targetParamKey: string;
+  model: (Map<string, number>, number) => Map<string, number>;
+  ylabel: string;
+  dt: number;
+  totalTime: number;
+  height: number;
 }
 
 interface RendererState {
-  nearestValue: ?any,
+  nearestValue: ?any;
 }
 
 class ModelRenderer extends Component<RendererProps, RendererState> {
   state = {
     nearestValue: null,
-  }
+  };
 
   runModel(): Array<number> {
-    const {
-      params, model, dt, totalTime, targetParamKey,
-    } = this.props;
+    const { params, model, dt, totalTime, targetParamKey } = this.props;
     const steps = totalTime / dt;
-    const initialParams = new Map(params.map(
-      p => [p.key, p.value],
-    ));
+    const initialParams = new Map(params.map((p) => [p.key, p.value]));
     const modelResults = [...Array(steps).keys()].reduce(
       (r, i) => {
         const newParams = model(r.params, dt, i * dt);
@@ -69,16 +67,14 @@ class ModelRenderer extends Component<RendererProps, RendererState> {
       {
         params: initialParams,
         results: [],
-      },
+      }
     );
     const { results } = modelResults;
     return results;
   }
 
   render() {
-    const {
-      params, model, height, ylabel,
-    } = this.props;
+    const { params, model, height, ylabel } = this.props;
     const data = this.runModel(params, model);
     const { nearestValue } = this.state;
     return (
@@ -91,23 +87,23 @@ class ModelRenderer extends Component<RendererProps, RendererState> {
         <LineSeries
           strokeStyle="dashed"
           data={data}
-          onNearestX={v => this.setState({ nearestValue: v })}
+          onNearestX={(v) => this.setState({ nearestValue: v })}
         />
-        {nearestValue == null
-          ? null
-          : (
-            <Crosshair
-              values={[nearestValue]}
-              titleFormat={i => ({
-                title: ylabel,
-                value: `${Math.round(i[0].y * 10000) / 10000}`,
-              })}
-              itemsFormat={i => i.map(j => ({
-                title: 'Time (ms)',
+        {nearestValue == null ? null : (
+          <Crosshair
+            values={[nearestValue]}
+            titleFormat={(i) => ({
+              title: ylabel,
+              value: `${Math.round(i[0].y * 10000) / 10000}`,
+            })}
+            itemsFormat={(i) =>
+              i.map((j) => ({
+                title: "Time (ms)",
                 value: `${Math.round(j.x * 10000) / 10000}`,
-              }))}
-            />
-          )}
+              }))
+            }
+          />
+        )}
       </FlexibleWidthXYPlot>
     );
   }
@@ -116,7 +112,7 @@ class ModelRenderer extends Component<RendererProps, RendererState> {
 class Model extends Component<Props, State> {
   static defaultProps = {
     height: 300,
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -133,12 +129,14 @@ class Model extends Component<Props, State> {
     event.stopPropagation();
     const form = event.currentTarget;
     const newParams = params.map((param) => {
-      const {
-        key, name, unit, stepValue,
-      } = param;
+      const { key, name, unit, stepValue } = param;
       const value = parseFloat(form[key].value);
       return {
-        key, name, unit, value, stepValue,
+        key,
+        name,
+        unit,
+        value,
+        stepValue,
       };
     });
     const targetParamKey = form.out_var.value;
@@ -146,12 +144,12 @@ class Model extends Component<Props, State> {
       params: newParams,
       targetParamKey,
     });
-  }
+  };
 
   renderModel(): React.Node {
     const { model, height } = this.props;
     const { params, targetParamKey } = this.state;
-    const { name, unit } = params.find(e => e.key === targetParamKey);
+    const { name, unit } = params.find((e) => e.key === targetParamKey);
     const ylabel = unit == null ? name : `${name} (${unit})`;
     const columnSize = 4;
     return (
@@ -169,8 +167,13 @@ class Model extends Component<Props, State> {
         </LazyLoad>
         <Form onSubmit={this.handleSubmit}>
           <Form.Row>
-            {params.map(param => (
-              <Form.Group key={param.key} controlId={param.key} as={Col} md={columnSize}>
+            {params.map((param) => (
+              <Form.Group
+                key={param.key}
+                controlId={param.key}
+                as={Col}
+                md={columnSize}
+              >
                 <Form.Label>{param.name}</Form.Label>
                 <InputGroup>
                   <Form.Control
@@ -180,25 +183,21 @@ class Model extends Component<Props, State> {
                     step={param.stepValue}
                     required
                   />
-                  {param.unit == null
-                    ? null
-                    : (
-                      <InputGroup.Append>
-                        <InputGroup.Text>{param.unit}</InputGroup.Text>
-                      </InputGroup.Append>
-                    )}
+                  {param.unit == null ? null : (
+                    <InputGroup.Append>
+                      <InputGroup.Text>{param.unit}</InputGroup.Text>
+                    </InputGroup.Append>
+                  )}
                 </InputGroup>
               </Form.Group>
             ))}
             <Form.Group controlId="out_var" as={Col} md={columnSize}>
               <Form.Label>Output Variable</Form.Label>
-              <Form.Control
-                as="select"
-                defaultValue={targetParamKey}
-                required
-              >
-                {params.map(param => (
-                  <option value={param.key} key={param.key}>{param.name}</option>
+              <Form.Control as="select" defaultValue={targetParamKey} required>
+                {params.map((param) => (
+                  <option value={param.key} key={param.key}>
+                    {param.name}
+                  </option>
                 ))}
               </Form.Control>
             </Form.Group>

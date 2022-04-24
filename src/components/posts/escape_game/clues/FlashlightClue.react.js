@@ -1,4 +1,4 @@
-import React, { FunctionalComponent, useState } from "react";
+import React, { FunctionalComponent } from "react";
 import { Button, ButtonGroup, Card } from "react-bootstrap";
 import FlashlightOff from "../images/flashlight-off.svg";
 import FlashlightOn from "../images/flashlight-on.svg";
@@ -14,14 +14,6 @@ const FlashlightClue: FunctionalComponent = (props: Props) => {
   const status = flags.has("flashlight-status")
     ? flags.get("flashlight-status")
     : false;
-  const switch_btn = (
-    <Button
-      onClick={() => addFlag("flashlight-status", !status)}
-      variant="link"
-    >
-      switch
-    </Button>
-  );
   const img = status ? FlashlightOn : FlashlightOff;
 
   return (
